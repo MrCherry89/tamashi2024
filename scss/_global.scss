@@ -484,7 +484,7 @@ a {
 
 .video-wrap {
   opacity: 0; /* Начальное состояние для анимации */
-  transform: translateY(300px);
+  transform: translateY(100px);
   .video {
     height: 50vw;
     @include flex;
@@ -505,7 +505,7 @@ a {
   background-position: center center;
   padding: 40px 0;
   opacity: 0; /* Начальное состояние для анимации */
-  transform: translateY(300px);
+  transform: translateY(100px);
   .info {
     display: grid;
     gap: 20px;
