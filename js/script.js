@@ -78,6 +78,7 @@ $(document).ready(function () {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
+    initialSlide: 1,
     asNavFor: ".slider-nav",
     prevArrow: $(".planning-solutions .slider-navigation .slick-prev"),
     nextArrow: $(".planning-solutions .slider-navigation .slick-next"),
@@ -90,6 +91,9 @@ $(document).ready(function () {
     arrows: false,
     focusOnSelect: true,
     vertical: true,
+    initialSlide: 1, // Синхронизация со вторым слайдом
+    centerMode: true,
+    centerPadding: 0,
     responsive: [
       {
         breakpoint: 1101,
@@ -108,6 +112,8 @@ $(document).ready(function () {
         settings: {
           vertical: false,
           slidesToShow: 2,
+          focusOnSelect: false,
+          autoplay: true,
         },
       },
     ],
@@ -119,6 +125,36 @@ $(document).ready(function () {
 
   $(".main-menu li a").smoothScroll({
     speed: 1000,
+  });
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to(".advantages", {
+    opacity: 1,
+    y: 0,
+    duration: 1.5, // Продолжительность будет игнорироваться, если есть scrub
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".advantages",
+      start: "top 100%",
+      end: "top 20%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to(".video-wrap", {
+    opacity: 1,
+    y: 0,
+    duration: 1.5, // Продолжительность будет игнорироваться, если есть scrub
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".video-wrap",
+      start: "top 100%",
+      end: "top 20%",
+      toggleActions: "play none none none",
+    },
   });
 
   AOS.init();
